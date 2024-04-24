@@ -53,6 +53,6 @@ if user_input:
     response = chat_completion.choices[0].message.content
 
     with st.chat_message('assistant'):
-        assistant_response = st.markdown(response, unsafe_allow_html=True)
+        st.markdown(response, unsafe_allow_html=True)
 
-    st.session_state.messages.append({'role': 'assistant', 'content': assistant_response})
+    st.session_state.messages.append({'role': 'assistant', 'content': response})
