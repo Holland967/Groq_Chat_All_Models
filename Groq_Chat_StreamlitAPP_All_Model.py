@@ -16,13 +16,12 @@ client = Groq(api_key=os.environ.get('gsk_XlhnSNKToAqGvtOfkcf1WGdyb3FYFiG4NBjlX3
 model_max_tokens = {
     'llama3-70b-8192': 8192,
     'llama3-8b-8192': 8192,
-    'llama2-70b-4096': 4096,
     'mixtral-8x7b-32768': 32768,
     'gemma-7b-it': 8192,
 }
 
 with st.sidebar:
-    model = st.selectbox('Choose a LLM to chat', ('llama3-70b-8192', 'llama3-8b-8192', 'llama2-70b-4096', 'mixtral-8x7b-32768', 'gemma-7b-it'))
+    model = st.selectbox('Choose a LLM to chat', ('llama3-70b-8192', 'llama3-8b-8192', 'mixtral-8x7b-32768', 'gemma-7b-it'))
     system_prompt = st.text_area('System Prompt', value='You are a helpful assistant.')
     max_tokens = st.slider('Max Tokens', 1, model_max_tokens[model], model_max_tokens[model], step=1)
     temperature = st.slider('Temperature', 0.00, 2.00, 0.75, step=0.01)
